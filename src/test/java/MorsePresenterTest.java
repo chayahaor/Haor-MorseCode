@@ -14,11 +14,11 @@ class MorsePresenterTest {
 
         //when
         String toConvert = ".... . .-.. .-.. ---";
-        //presenter.convertToEnglish(toConvert);
+        presenter.convertToEnglish(toConvert);
         //then
 
-        //  verify(model).toEnglish(toConvert);
-        //verify(view).setTaEnglishInput(toConvert);
+        verify(model).toEnglish(toConvert);
+        verify(view).setTaEnglishInput(toConvert);
 
     }
 
@@ -28,11 +28,11 @@ class MorsePresenterTest {
 
         //when
         String toConvert = "hello";
-        // presenter.convertToMorse(toConvert);
+        presenter.convertToMorse(toConvert);
 
         //then
-        //  verify(model).toMorse(toConvert);
-        //verify(view).setTaEnglishInput(toConvert);
+        verify(model).toMorse(toConvert);
+        verify(view).setTaEnglishInput(toConvert);
     }
 
 }
