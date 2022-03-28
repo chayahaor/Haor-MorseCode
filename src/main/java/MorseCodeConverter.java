@@ -2,57 +2,97 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MorseCodeConverter {
-    static Map<String, String> morseCodeMap = new HashMap<>();
 
-    void fillMorse() {
-        morseCodeMap.put("a", ".-");
-        morseCodeMap.put("b", "-...");
-        morseCodeMap.put("c", "-.-.");
-        morseCodeMap.put("d", "-..");
-        morseCodeMap.put("e", ".");
-        morseCodeMap.put("f", "..-.");
-        morseCodeMap.put("g", "--.");
-        morseCodeMap.put("h", "....");
-        morseCodeMap.put("i", "..");
-        morseCodeMap.put("j", ".---");
-        morseCodeMap.put("k", "-.-");
-        morseCodeMap.put("l", ".-..");
-        morseCodeMap.put("m", "--");
-        morseCodeMap.put("n", "-.");
-        morseCodeMap.put("o", "---");
-        morseCodeMap.put("p", ".--.");
-        morseCodeMap.put("q", "--.-");
-        morseCodeMap.put("r", ".-.");
-        morseCodeMap.put("s", "...");
-        morseCodeMap.put("t", "-");
-        morseCodeMap.put("u", "..-");
-        morseCodeMap.put("v", "...-");
-        morseCodeMap.put("w", ".--");
-        morseCodeMap.put("x", "-..-");
-        morseCodeMap.put("y", "-.--");
-        morseCodeMap.put("z", "--..");
-        morseCodeMap.put("0", "-----");
-        morseCodeMap.put("1", ".----");
-        morseCodeMap.put("2", "..---");
-        morseCodeMap.put("3", "...--");
-        morseCodeMap.put("4", "....-");
-        morseCodeMap.put("5", ".....");
-        morseCodeMap.put("6", "-....");
-        morseCodeMap.put("7", "--...");
-        morseCodeMap.put("8", "---..");
-        morseCodeMap.put("9", "----.");
+
+    void fillMapToMorse(Map<String, String> mapToMorse) {
+        mapToMorse.put("a", ".-");
+        mapToMorse.put("b", "-...");
+        mapToMorse.put("c", "-.-.");
+        mapToMorse.put("d", "-..");
+        mapToMorse.put("e", ".");
+        mapToMorse.put("f", "..-.");
+        mapToMorse.put("g", "--.");
+        mapToMorse.put("h", "....");
+        mapToMorse.put("i", "..");
+        mapToMorse.put("j", ".---");
+        mapToMorse.put("k", "-.-");
+        mapToMorse.put("l", ".-..");
+        mapToMorse.put("m", "--");
+        mapToMorse.put("n", "-.");
+        mapToMorse.put("o", "---");
+        mapToMorse.put("p", ".--.");
+        mapToMorse.put("q", "--.-");
+        mapToMorse.put("r", ".-.");
+        mapToMorse.put("s", "...");
+        mapToMorse.put("t", "-");
+        mapToMorse.put("u", "..-");
+        mapToMorse.put("v", "...-");
+        mapToMorse.put("w", ".--");
+        mapToMorse.put("x", "-..-");
+        mapToMorse.put("y", "-.--");
+        mapToMorse.put("z", "--..");
+        mapToMorse.put("0", "-----");
+        mapToMorse.put("1", ".----");
+        mapToMorse.put("2", "..---");
+        mapToMorse.put("3", "...--");
+        mapToMorse.put("4", "....-");
+        mapToMorse.put("5", ".....");
+        mapToMorse.put("6", "-....");
+        mapToMorse.put("7", "--...");
+        mapToMorse.put("8", "---..");
+        mapToMorse.put("9", "----.");
+    }
+
+    void fillMapToEnglish(Map<String, String> mapToMorse) {
+        mapToMorse.put(".-", "a");
+        mapToMorse.put("-...", "b");
+        mapToMorse.put("-.-.", "c");
+        mapToMorse.put("-..", "d");
+        mapToMorse.put(".", "e");
+        mapToMorse.put("..-.", "f");
+        mapToMorse.put("--.", "g");
+        mapToMorse.put("....", "h");
+        mapToMorse.put("..", "i");
+        mapToMorse.put(".---", "j");
+        mapToMorse.put("-.-", "k");
+        mapToMorse.put(".-..", "l");
+        mapToMorse.put("--", "m");
+        mapToMorse.put("-.", "n");
+        mapToMorse.put("---", "o");
+        mapToMorse.put(".--.", "p");
+        mapToMorse.put("--.-", "q");
+        mapToMorse.put(".-.", "r");
+        mapToMorse.put("...", "s");
+        mapToMorse.put("-", "t");
+        mapToMorse.put("..-", "u");
+        mapToMorse.put("...-", "v");
+        mapToMorse.put(".--", "w");
+        mapToMorse.put("-..-", "x");
+        mapToMorse.put("-.--", "y");
+        mapToMorse.put("--..", "z");
+        mapToMorse.put("-----", "0");
+        mapToMorse.put(".----", "1");
+        mapToMorse.put("..---", "2");
+        mapToMorse.put("...--", "3");
+        mapToMorse.put("....-", "4");
+        mapToMorse.put(".....", "5");
+        mapToMorse.put("-....", "6");
+        mapToMorse.put("--...", "7");
+        mapToMorse.put("---..", "8");
+        mapToMorse.put("----.", "9");
     }
 
     String toMorse(String english) {
-        fillMorse();
+        Map<String, String> mapToMorse = new HashMap<>();
+        fillMapToMorse(mapToMorse);
         english = english.toLowerCase();
         StringBuilder sb = new StringBuilder();
-        char[] inpChar = english.toCharArray();
-        for (char letter : inpChar)
+        String[] inpChar = english.split("");
+        for (String letter : inpChar)
         {
-            if (morseCodeMap.get(letter+"") != null)
+            if (mapToMorse.containsKey(letter))
             {
-                sb.append(morseCodeMap.get(letter + ""));
+                sb.append(mapToMorse.get(letter));
                 sb.append(" ");
             }
         }
@@ -60,17 +100,18 @@ public class MorseCodeConverter {
     }
 
     String toEnglish(String morse) {
-        fillMorse();
-        StringBuilder output = new StringBuilder();
+        Map<String, String> mapToEnglish = new HashMap<>();
+        fillMapToEnglish(mapToEnglish);
+        StringBuilder sb = new StringBuilder();
         String[] inputLetters = morse.split(" ");
         for (String inputLetter : inputLetters)
         {
-            if (morseCodeMap.containsValue(inputLetter))
+            if (mapToEnglish.containsKey(inputLetter))
             {
-                output.append(morseCodeMap.get(inputLetter)); //TODO: FIX Always returns null since key/value situation
+                sb.append(mapToEnglish.get(inputLetter));
+                sb.append(" ");
             }
         }
-        return output.toString();
+        return sb.toString();
     }
-
 }
