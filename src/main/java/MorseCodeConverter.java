@@ -4,7 +4,7 @@ import java.util.Map;
 public class MorseCodeConverter {
     static Map<String, String> morseCodeMap = new HashMap<>();
 
-    private void fillMorse() {
+    void fillMorse() {
         morseCodeMap.put("a", ".-");
         morseCodeMap.put("b", "-...");
         morseCodeMap.put("c", "-.-.");
@@ -43,27 +43,31 @@ public class MorseCodeConverter {
         morseCodeMap.put("9", "----.");
     }
 
-    private String toMorse(String english) {
-        StringBuilder output = new StringBuilder();
-        String[] inputLetters = english.split("");
-        for (String inputLetter : inputLetters)
+    String toMorse(String english) {
+        fillMorse();
+        english = english.toLowerCase();
+        StringBuilder sb = new StringBuilder();
+        char[] inpChar = english.toCharArray();
+        for (char letter : inpChar)
         {
-            if (morseCodeMap.containsKey(inputLetter))
+            if (morseCodeMap.get(letter+"") != null)
             {
-                output.append(morseCodeMap.get(inputLetter));
+                sb.append(morseCodeMap.get(letter + ""));
+                sb.append(" ");
             }
         }
-        return output.toString();
+        return sb.toString();
     }
 
-    private String toEnglish(String morse) {
+    String toEnglish(String morse) {
+        fillMorse();
         StringBuilder output = new StringBuilder();
         String[] inputLetters = morse.split(" ");
         for (String inputLetter : inputLetters)
         {
             if (morseCodeMap.containsValue(inputLetter))
             {
-                output.append(morseCodeMap.get(inputLetter));
+                output.append(morseCodeMap.get(inputLetter)); //TODO: FIX Always returns null since key/value situation
             }
         }
         return output.toString();
