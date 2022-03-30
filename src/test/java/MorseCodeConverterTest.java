@@ -11,7 +11,7 @@ class MorseCodeConverterTest {
         //when
         String morse = ".... . .-.. .-.. ---";
         //then
-        assertEquals("h e l l o ", convert.toEnglish(morse));
+        assertEquals("h e l l o", convert.toEnglish(morse));
     }
 
     @Test
@@ -21,7 +21,7 @@ class MorseCodeConverterTest {
         //when
         String english = "hello";
         //then
-        assertEquals(".... . .-.. .-.. --- ", convert.toMorse(english));
+        assertEquals(".... . .-.. .-.. ---", convert.toMorse(english));
 
     }
 }

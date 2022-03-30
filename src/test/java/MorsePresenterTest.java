@@ -11,12 +11,17 @@ class MorsePresenterTest {
     @Test
     public void convertEnglish() {
         //given
+        String toConvert = ".... . .-.. .-.. ---";
+        doReturn("h e l l o")
+                .when(model)
+                .toEnglish(toConvert);
+        //when(model.toEnglish(toConvert))
+          //      .thenReturn("h e l l o");
 
         //when
-        String toConvert = ".... . .-.. .-.. ---";
         presenter.convertToEnglish(toConvert);
-        //then
 
+        //then
         verify(model).toEnglish(toConvert);
         verify(view).setTaEnglishInput(toConvert);
 
@@ -25,9 +30,9 @@ class MorsePresenterTest {
     @Test
     public void convertMorse() {
         //given
+        String toConvert = "hello";
 
         //when
-        String toConvert = "hello";
         presenter.convertToMorse(toConvert);
 
         //then

@@ -96,7 +96,7 @@ public class MorseCodeConverter {
                 sb.append(" ");
             }
         }
-        return sb.toString();
+        return sb.toString().trim();
     }
 
     String toEnglish(String morse) {
@@ -112,6 +112,6 @@ public class MorseCodeConverter {
                 sb.append(" ");
             }
         }
-        return sb.toString();
+        return sb.toString().trim();
     }
 }
