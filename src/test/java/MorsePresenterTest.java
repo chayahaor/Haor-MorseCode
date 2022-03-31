@@ -15,15 +15,13 @@ class MorsePresenterTest {
         doReturn("h e l l o")
                 .when(model)
                 .toEnglish(toConvert);
-        //when(model.toEnglish(toConvert))
-          //      .thenReturn("h e l l o");
+
 
         //when
         presenter.convertToEnglish(toConvert);
 
         //then
         verify(model).toEnglish(toConvert);
-        verify(view).setTaEnglishInput(toConvert);
 
     }
 
@@ -37,7 +35,7 @@ class MorsePresenterTest {
 
         //then
         verify(model).toMorse(toConvert);
-        verify(view).setTaEnglishInput(toConvert);
+
     }
 
 }

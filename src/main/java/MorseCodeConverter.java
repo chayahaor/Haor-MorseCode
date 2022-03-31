@@ -82,7 +82,7 @@ public class MorseCodeConverter {
         mapToMorse.put("----.", "9");
     }
 
-    String toMorse(String english) {
+    public String toMorse(String english) {
         Map<String, String> mapToMorse = new HashMap<>();
         fillMapToMorse(mapToMorse);
         english = english.toLowerCase();
@@ -99,7 +99,7 @@ public class MorseCodeConverter {
         return sb.toString().trim();
     }
 
-    String toEnglish(String morse) {
+    public String toEnglish(String morse) {
         Map<String, String> mapToEnglish = new HashMap<>();
         fillMapToEnglish(mapToEnglish);
         StringBuilder sb = new StringBuilder();
