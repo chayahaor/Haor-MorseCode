@@ -2,6 +2,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MorseCodeConverter {
+    Map<String, String> mapToMorse = new HashMap<>();
+    Map<String, String> mapToEnglish = new HashMap<>();
+
+    public MorseCodeConverter(){
+        fillMapToMorse(mapToMorse);
+        fillMapToEnglish(mapToEnglish);
+    }
 
 
     void fillMapToMorse(Map<String, String> mapToMorse) {
@@ -83,8 +90,7 @@ public class MorseCodeConverter {
     }
 
     public String toMorse(String english) {
-        Map<String, String> mapToMorse = new HashMap<>();
-        fillMapToMorse(mapToMorse);
+        MorseCodeConverter converter = new MorseCodeConverter();
         english = english.toLowerCase();
         StringBuilder sb = new StringBuilder();
         String[] inpChar = english.split("");
@@ -100,8 +106,6 @@ public class MorseCodeConverter {
     }
 
     public String toEnglish(String morse) {
-        Map<String, String> mapToEnglish = new HashMap<>();
-        fillMapToEnglish(mapToEnglish);
         StringBuilder sb = new StringBuilder();
         String[] inputLetters = morse.split(" ");
         for (String inputLetter : inputLetters)
