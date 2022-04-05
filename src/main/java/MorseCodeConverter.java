@@ -2,16 +2,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MorseCodeConverter {
-    Map<String, String> mapToMorse = new HashMap<>();
-    Map<String, String> mapToEnglish = new HashMap<>();
+    private Map<String, String> mapToMorse = new HashMap<>();
+    private Map<String, String> mapToEnglish = new HashMap<>();
 
-    public MorseCodeConverter(){
-        fillMapToMorse(mapToMorse);
-        fillMapToEnglish(mapToEnglish);
+    public MorseCodeConverter() {
+        fillMapToMorse();
+        fillMapToEnglish();
     }
 
 
-    void fillMapToMorse(Map<String, String> mapToMorse) {
+    void fillMapToMorse() {
         mapToMorse.put("a", ".-");
         mapToMorse.put("b", "-...");
         mapToMorse.put("c", "-.-.");
@@ -50,7 +50,7 @@ public class MorseCodeConverter {
         mapToMorse.put("9", "----.");
     }
 
-    void fillMapToEnglish(Map<String, String> mapToMorse) {
+    void fillMapToEnglish() {
         mapToMorse.put(".-", "a");
         mapToMorse.put("-...", "b");
         mapToMorse.put("-.-.", "c");
