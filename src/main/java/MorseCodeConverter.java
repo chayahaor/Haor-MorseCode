@@ -10,7 +10,7 @@ public class MorseCodeConverter {
         fillMapToEnglish();
     }
 
-    void fillMapToMorse() {
+    private void fillMapToMorse() {
         mapToMorse.put("a", ".-");
         mapToMorse.put("b", "-...");
         mapToMorse.put("c", "-.-.");
@@ -49,7 +49,7 @@ public class MorseCodeConverter {
         mapToMorse.put("9", "----.");
     }
 
-    void fillMapToEnglish() {
+    private void fillMapToEnglish() {
         mapToEnglish.put(".-", "a");
         mapToEnglish.put("-...", "b");
         mapToEnglish.put("-.-.", "c");
